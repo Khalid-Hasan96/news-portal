@@ -1,7 +1,11 @@
 const loadCategories = () => {
-    fetch('https://openapi.programming-hero.com/api/news/categories')
-        .then(res => res.json())
-        .then(data => displayCategories(data.data))
+    try {
+        fetch('https://openapi.programming-hero.com/api/news/categories')
+            .then(res => res.json())
+            .then(data => displayCategories(data.data))
+    } catch (error) {
+        console.error(error)
+    }
 }
 const displayCategories = categories => {
     const categoriesContainer = document.getElementById('categories-container');
@@ -23,10 +27,16 @@ const displayCategories = categories => {
 }
 const loadNews = category_id => {
     loadingSpinner(true);
-    const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
-    fetch(url)
-        .then(res => res.json())
-        .then(data => displayNews(data.data))
+
+    try {
+        const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => displayNews(data.data))
+    }
+    catch (error) {
+        console.error(error)
+    }
 }
 
 const displayNews = allNews => {
@@ -49,7 +59,7 @@ const displayNews = allNews => {
                         <p class="card-text text-muted">${news.details.slice(0, 200)}....</p>
                     </div>
                 </div>
-                <div class="card-footer text-muted d-flex justify-content-between">
+                <div class="card-footer text-muted d-lg-flex flex-lg-row justify-content-between d-sm-flex flex-sm-column small-device">
 
                     <div class="d-flex">
                         <img src="${news.author.img ? news.author.img : 'No Author Image'}" width="50px"
@@ -61,7 +71,7 @@ const displayNews = allNews => {
                         </div>
                     </div>
                     <div>
-                        <p class="fs-5"><i class="fa-solid fa-eye"></i> ${news.total_view ? news.total_view : 'No data'}</p>
+                        <p class="fs-4"><i class="fa-solid fa-eye"></i> ${news.total_view ? news.total_view : 'No data'}</p>
                     </div>
 
                     <button onclick="loadNewsDetails('${news._id}')" class="btn btn-outline-primary"
@@ -83,10 +93,15 @@ const displayNews = allNews => {
 }
 
 const loadNewsDetails = newsId => {
-    const url = `https://openapi.programming-hero.com/api/news/${newsId}`;
-    fetch(url)
-        .then(res => res.json())
-        .then(data => displayNewsDetail(data.data))
+    try {
+        const url = `https://openapi.programming-hero.com/api/news/${newsId}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => displayNewsDetail(data.data))
+    }
+    catch (error) {
+        console.error(error)
+    }
 }
 
 const displayNewsDetail = newsDetails => {
