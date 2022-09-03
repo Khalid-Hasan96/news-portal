@@ -1,11 +1,9 @@
 const loadCategories = () => {
-    try {
-        fetch('https://openapi.programming-hero.com/api/news/categories')
-            .then(res => res.json())
-            .then(data => displayCategories(data.data))
-    } catch (error) {
-        console.error(error)
-    }
+
+    fetch('https://openapi.programming-hero.com/api/news/categories')
+        .then(res => res.json())
+        .then(data => displayCategories(data.data))
+        .catch(error => console.log(error))
 }
 const displayCategories = categories => {
     const categoriesContainer = document.getElementById('categories-container');
@@ -27,16 +25,13 @@ const displayCategories = categories => {
 }
 const loadNews = category_id => {
     loadingSpinner(true);
+    const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayNews(data.data))
+        .catch(error => console.log(error))
 
-    try {
-        const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
-        fetch(url)
-            .then(res => res.json())
-            .then(data => displayNews(data.data))
-    }
-    catch (error) {
-        console.error(error)
-    }
+
 }
 
 const displayNews = allNews => {
@@ -59,7 +54,7 @@ const displayNews = allNews => {
                         <p class="card-text text-muted">${news.details.slice(0, 200)}....</p>
                     </div>
                 </div>
-                <div class="card-footer text-muted d-lg-flex flex-lg-row justify-content-between d-sm-flex flex-sm-column small-device">
+                <div class="card-footer text-muted d-lg-flex flex-lg-row justify-content-lg-between d-sm-flex flex-sm-column justify-content-sm-center align-items-sm-center small-device">
 
                     <div class="d-flex">
                         <img src="${news.author.img ? news.author.img : 'No Author Image'}" width="50px"
@@ -93,15 +88,11 @@ const displayNews = allNews => {
 }
 
 const loadNewsDetails = newsId => {
-    try {
-        const url = `https://openapi.programming-hero.com/api/news/${newsId}`;
-        fetch(url)
-            .then(res => res.json())
-            .then(data => displayNewsDetail(data.data))
-    }
-    catch (error) {
-        console.error(error)
-    }
+    const url = `https://openapi.programming-hero.com/api/news/${newsId}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayNewsDetail(data.data))
+        .catch(error => console.log(error))
 }
 
 const displayNewsDetail = newsDetails => {
@@ -121,8 +112,8 @@ const displayNewsDetail = newsDetails => {
                 <p class="card-text text-center">${news.details}</p>
                 <hr>
                 <div class="d-flex justify-content-around">
-                    <p><small class="text-warning"><i class="fa-solid fa-star"></i> ${news.rating.number ? news.rating.number : 'No Data'}</small></p>
-                    <p><small class="text-primary"><i class="fa-solid fa-eye"></i> ${news.total_view ? news.total_view : 'No Data Found'}</small></p>
+                    <p><small class="text-warning fs-4"><i class="fa-solid fa-star"></i> ${news.rating.number ? news.rating.number : 'No Data'}</small></p>
+                    <p><small class="text-primary fs-4"><i class="fa-solid fa-eye"></i> ${news.total_view ? news.total_view : 'No Data Found'}</small></p>
                 </div>
             </div>
             <div class="card-footer text-muted text-center">
