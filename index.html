@@ -24,9 +24,16 @@
     </header>
     <hr>
     <main class="container">
+
         <!-- categories section -->
         <section class="mt-4" id="categories-container">
 
+        </section>
+        <!-- items section -->
+        <section class="mt-4 bg-light p-2 rounded">
+            <div id="items">
+
+            </div>
         </section>
         <!-- news section -->
         <section class="mt-5">
@@ -56,7 +63,13 @@
                     </div>
                 </div>
             </div>
-
+            <!-- spinner -->
+            <div id="loading" class="text-center mt-5 d-none">
+                <button class="btn btn-warning text-light" type="button" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Loading...
+                </button>
+            </div>
 
         </section>
     </main>
