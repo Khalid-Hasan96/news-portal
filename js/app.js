@@ -4,7 +4,6 @@ const loadCategories = () => {
         .then(data => displayCategories(data.data))
 }
 const displayCategories = categories => {
-    console.log(categories)
     const categoriesContainer = document.getElementById('categories-container');
     categoriesContainer.innerHTML =
         `
@@ -79,13 +78,9 @@ const displayNews = allNews => {
     loadingSpinner(false);
     const itemsContainer = document.getElementById('items');
     itemsContainer.innerHTML = `
-    <h5>${allNews.length} Items Found for This Category</h5>
+    <h5>${allNews.length} Items Found in This Category</h5>
     `;
 }
-
-
-
-
 
 const loadNewsDetails = newsId => {
     const url = `https://openapi.programming-hero.com/api/news/${newsId}`;
