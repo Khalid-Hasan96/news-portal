@@ -4,6 +4,7 @@ const loadCategories = () => {
         .then(data => displayCategories(data.data))
 }
 const displayCategories = categories => {
+    console.log(categories)
     const categoriesContainer = document.getElementById('categories-container');
     categoriesContainer.innerHTML =
         `
@@ -19,6 +20,7 @@ const displayCategories = categories => {
         <button onclick="loadNews('${categories.news_category[7].category_id}')" type="button" class="btn btn-outline-primary">${categories.news_category[7].category_name}</button>
     </div>
     `;
+
 }
 const loadNews = category_id => {
     loadingSpinner(true);
@@ -29,10 +31,11 @@ const loadNews = category_id => {
 }
 
 const displayNews = allNews => {
+
     const newsContainer = document.getElementById('news-container');
     newsContainer.innerHTML = ``;
     allNews.forEach(news => {
-        console.log(news);
+
         const divContainer = document.createElement('div');
         divContainer.innerHTML = `
     <div class="card mb-3">
@@ -71,8 +74,13 @@ const displayNews = allNews => {
 
         `;
         newsContainer.appendChild(divContainer);
+
     })
     loadingSpinner(false);
+    const itemsContainer = document.getElementById('items');
+    itemsContainer.innerHTML = `
+    <h5>${allNews.length} Items Found for This Category</h5>
+    `;
 }
 
 
@@ -129,8 +137,8 @@ const loadingSpinner = isLoading => {
 
 }
 
-const showItems = () => {
-    const itemsContainer = document.getElementById('items');
-    itemsContainer.innerText =
-}
+// const showItems = () => {
+//     const itemsContainer = document.getElementById('items');
+//     itemsContainer.innerText =
+// }
 loadCategories();
