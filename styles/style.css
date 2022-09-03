@@ -3,3 +3,11 @@
 body {
       font-family: 'Roboto Slab', serif;
 }
+
+@media screen and (max-width:576px) {
+      .small-device {
+            display: flex;
+            flex-direction: column;
+      }
+
+}

@@ -7,17 +7,17 @@ const displayCategories = categories => {
     const categoriesContainer = document.getElementById('categories-container');
     categoriesContainer.innerHTML =
         `
-    <div class="d-flex justify-content-between">
-        <button type="button" class="btn btn-outline-primary">Home</button>
-        <button onclick="loadNews('${categories.news_category[0].category_id}')" type="button" class="btn btn-outline-primary">${categories.news_category[0].category_name}</button>
-        <button onclick="loadNews('${categories.news_category[1].category_id}')" type="button" class="btn btn-outline-primary">${categories.news_category[1].category_name}</button>
-        <button onclick="loadNews('${categories.news_category[2].category_id}')" type="button" class="btn btn-outline-primary">${categories.news_category[2].category_name}</button>
-        <button onclick="loadNews('${categories.news_category[3].category_id}')" type="button" class="btn btn-outline-primary">${categories.news_category[3].category_name}</button>
-        <button onclick="loadNews('${categories.news_category[4].category_id}')" type="button" class="btn btn-outline-primary">${categories.news_category[4].category_name}</button>
-        <button onclick="loadNews('${categories.news_category[5].category_id}')" type="button" class="btn btn-outline-primary">${categories.news_category[5].category_name}</button>
-        <button onclick="loadNews('${categories.news_category[6].category_id}')" type="button" class="btn btn-outline-primary">${categories.news_category[6].category_name}</button>
-        <button onclick="loadNews('${categories.news_category[7].category_id}')" type="button" class="btn btn-outline-primary">${categories.news_category[7].category_name}</button>
-    </div>
+    
+            <button onclick="loadNews('${categories.news_category[7].category_id}')" type="button" class="btn btn-outline-primary">Home</button>
+            <button onclick="loadNews('${categories.news_category[0].category_id}')" type="button" class="btn btn-outline-primary">${categories.news_category[0].category_name}</button>
+            <button onclick="loadNews('${categories.news_category[1].category_id}')" type="button" class="btn btn-outline-primary">${categories.news_category[1].category_name}</button>
+            <button onclick="loadNews('${categories.news_category[2].category_id}')" type="button" class="btn btn-outline-primary">${categories.news_category[2].category_name}</button>
+            <button onclick="loadNews('${categories.news_category[3].category_id}')" type="button" class="btn btn-outline-primary">${categories.news_category[3].category_name}</button>
+            <button onclick="loadNews('${categories.news_category[4].category_id}')" type="button" class="btn btn-outline-primary">${categories.news_category[4].category_name}</button>
+            <button onclick="loadNews('${categories.news_category[5].category_id}')" type="button" class="btn btn-outline-primary">${categories.news_category[5].category_name}</button>
+            <button onclick="loadNews('${categories.news_category[6].category_id}')" type="button" class="btn btn-outline-primary">${categories.news_category[6].category_name}</button>
+            <button onclick="loadNews('${categories.news_category[7].category_id}')" type="button" class="btn btn-outline-primary">${categories.news_category[7].category_name}</button>
+       
     `;
 
 }
