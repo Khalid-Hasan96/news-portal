@@ -137,8 +137,7 @@ const loadingSpinner = isLoading => {
 
 }
 
-// const showItems = () => {
-//     const itemsContainer = document.getElementById('items');
-//     itemsContainer.innerText =
-// }
+document.getElementById('open-blog-page').addEventListener('click', function () {
+    window.open('blog.html')
+})
 loadCategories();
